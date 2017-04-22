@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /index.html
+  - source: /sample-code-deploy-master
     destination: /var/www/html/
 hooks:
   BeforeInstall:
