@@ -5,7 +5,7 @@ if(! $conn )
   die('Could not connect: ' . mysql_error());
 }
 mysql_select_db('testdb',$conn);
-$sql = 'SELECT id,userName,password FROM `testdb`.`logTable`';
+$sql = 'SELECT * FROM `testdb`.`logTable`';
 
 
 $retval = mysql_query( $sql, $conn );
