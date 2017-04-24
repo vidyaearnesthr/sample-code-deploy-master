@@ -1,11 +1,11 @@
 <?php
 
-$conn =mysqli_connect($_SERVER['localhpst'], $_SERVER['root'], $_SERVER['root1234'], $_SERVER['testdb']);
+$conn =mysql_connect($_SERVER['localhost'], $_SERVER['root'], $_SERVER['root1234'], $_SERVER['testdb']);
 if(! $conn )
 {
-  die('Could not connect: ' . mysqli_error());
+  die('Could not connect: ' . mysql_error());
 }
 
 echo "Fetched data successfully\n";
-mysqli_close($conn);
+mysql_close($conn);
 ?>
