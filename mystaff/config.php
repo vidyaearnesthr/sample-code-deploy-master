@@ -1,10 +1,10 @@
 <?php
-echo "server ".$_SERVER['dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com'];
- echo "username ". $_SERVER['root'];
-echo "password ".$_SERVER['root1234'];
-echo "db".$_SERVER['testdb'];
+echo "server ".'dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com';
+ echo "username ". 'root';
+echo "password ".'root1234';
+echo "db".'testdb';
 
-$conn = mysql_connect($_SERVER['dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com'], $_SERVER['root'], $_SERVER['root1234']);
+$conn = mysql_connect('dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com', 'root', 'root1234');
 if(! $conn )
 {
   die('Could not connect: ' . mysql_error());
