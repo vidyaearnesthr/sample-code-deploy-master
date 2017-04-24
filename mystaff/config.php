@@ -1,4 +1,9 @@
 <?php
+echo "server ".$_SERVER['dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com'];
+ echo "username ". $_SERVER['root'];
+echo "password ".$_SERVER['root1234'];
+echo "db".$_SERVER['testdb'];
+
 $conn = mysql_connect($_SERVER['dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com'], $_SERVER['root'], $_SERVER['root1234']);
 if(! $conn )
 {
