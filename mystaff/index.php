@@ -1,5 +1,5 @@
 <?php
-$dbhost = 'dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com:3306';
+$dbhost = '';
 $dbuser = 'root';
 $dbpass = 'root1234';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
