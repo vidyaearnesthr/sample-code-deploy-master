@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect($_SERVER['localhost'], $_SERVER['root'], $_SERVER['root1234'], $_SERVER['testdb'], $_SERVER['3306']);
+$conn = mysql_connect($_SERVER['localhost'], $_SERVER['root'], $_SERVER['root1234'], $_SERVER['testdb']);
 if(! $conn )
 {
   die('Could not connect: ' . mysql_error());
