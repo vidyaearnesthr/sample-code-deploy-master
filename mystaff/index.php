@@ -1,18 +1,11 @@
 <?php
-echo "server ".$_SERVER['localhost'];
-
- echo "username ". $_SERVER['root'];
-echo "password ".$_SERVER['root1234'];
-echo "db".$_SERVER['testdb'];
-$conn = mysql_connect($_SERVER['localhost'], $_SERVER['root'], $_SERVER['root1234'], $_SERVER['testdb']);
+$conn = mysql_connect('testdbinstance.ceg2t1kc9pyr.us-west-2.rds.amazonaws.com','root', 'root1234', 'testdb');
 if(! $conn )
 {
   die('Could not connect: ' . mysql_error());
 }
-mysql_select_db('testdb',$conn);
-$sql = 'SELECT * FROM `testdb`.`logTable`';
-
-
+//mysql_select_db('testdb',$conn);
+$sql = 'SELECT * FROM `testdb`.`testdbtable`';
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -20,9 +13,9 @@ if(! $retval )
 }
 while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
 {
-    echo "Tutorial ID :{$row['id']}  <br> ".
-         "UserName: {$row['userName']} <br> ".
-         "Password: {$row['password']} <br> ".
+    echo "Tutorial ID :{$row['ID']}  <br> ".
+         "UserName: {$row['User Name']} <br> ".
+         "Password: {$row['Password']} <br> ".
           "--------------------------------<br>";
 } 
 echo "Fetched data successfully\n";
