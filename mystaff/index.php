@@ -1,8 +1,14 @@
 <?php
+global $conn;
 $conn = mysql_connect('testdbinstance.ceg2t1kc9pyr.us-west-2.rds.amazonaws.com','root', 'root1234', 'testdb');
 if(! $conn )
 {
-  die('Could not connect: ' . mysql_error());
+  //die('Could not connect: ' . mysql_error());
+  $conn = mysql_connect('dbinstance-replica.c8jztiemykcc.ap-southeast-1.rds.amazonaws.com','root', 'root1234', 'testdb');
+  if(! $conn )
+{
+  die('Could not connect second also: ' . mysql_error());
+}
 }
 //mysql_select_db('testdb',$conn);
 $sql = 'SELECT * FROM `testdb`.`testdbtable`';
