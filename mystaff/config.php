@@ -7,7 +7,12 @@ echo "db".'testdb';
 $conn = mysql_connect('dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com', 'root', 'root1234');
 if(! $conn )
 {
-  die('Could not connect: ' . mysql_error());
+  die('Could not connect 1st: ' . mysql_error());
+  $conn = mysql_connect('dbinstance-replica.c8jztiemykcc.ap-southeast-1.rds.amazonaws.com','root', 'root1234', 'testdb');
+  if(! $conn )
+{
+  die('Could not connect second also: ' . mysql_error());
+}
 }
 mysql_select_db('testdb',$conn);
 $sql = 'SELECT * FROM `testdb`.`logTable`';
