@@ -1,7 +1,7 @@
 <?php
 global $conn;
 
-$conn = mysql_connect('dbinstance-replica.c8jztiemykcc.ap-southeast-1.rds.amazonaws.com', 'root', 'root1234');
+$conn = mysql_connect('dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com', 'root', 'root1234');
 if(! $conn )
 {
   //die('Could not connect 1st: ' . mysql_error());
