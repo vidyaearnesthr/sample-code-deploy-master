@@ -1,15 +1,19 @@
 <?php
 global $conn;
 
-$conn = mysql_connect('mystaffdev-test.cthwf1dxttem.ap-southeast-1.rds.amazonaws.com', 'dev', 'rdsdevtest');
+$conn = mysql_connect('dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com', 'root', 'root1234');
 if(! $conn )
 {
   //die('Could not connect 1st: ' . mysql_error());
  echo "error in 1st connetcion";
-  
+  $conn = mysql_connect('dbinstance-replica.c8jztiemykcc.ap-southeast-1.rds.amazonaws.com','root', 'root1234', 'testdb');
+  if(! $conn )
+{
+  die('Could not connect second also: ' . mysql_error());
 }
-mysql_select_db('MyStaffDev',$conn);
-$sql = 'SELECT * FROM `MyStaffDev`.`user_table`';
+}
+mysql_select_db('testdb',$conn);
+$sql = 'SELECT * FROM `testdb`.`logTable`';
 
 
 $retval = mysql_query( $sql, $conn );
@@ -20,7 +24,7 @@ if(! $retval )
 while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
 {
     echo "Tutorial ID :{$row['id']}  <br> ".
-         "UserName: {$row['username']} <br> ".
+         "UserName: {$row['userName']} <br> ".
          "Password: {$row['password']} <br> ".
           "--------------------------------<br>";
 } 
