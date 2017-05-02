@@ -1,33 +1,27 @@
 <?php
-global $conn;
+global $servername;
+	global $username;
+	global $password;
+	global $dbname;
 
-$conn = mysql_connect('dbinstance.c96uwmzzvktk.us-west-2.rds.amazonaws.com', 'root', 'root1234');
-if(! $conn )
-{
-  //die('Could not connect 1st: ' . mysql_error());
- echo "error in 1st connetcion";
-  $conn = mysql_connect('dbinstance-replica.c8jztiemykcc.ap-southeast-1.rds.amazonaws.com','root', 'root1234', 'testdb');
-  if(! $conn )
-{
-  die('Could not connect second also: ' . mysql_error());
-}
-}
-mysql_select_db('testdb',$conn);
-$sql = 'SELECT * FROM `testdb`.`logTable`';
+/*$servername ="localhost";
+$username ="root";
+$password="";
+$dbname="mystaff";*/
 
 
-$retval = mysql_query( $sql, $conn );
-if(! $retval )
-{
-  die('Could not get data: ' . mysql_error());
+$servername = "mystaffdev-test.cthwf1dxttem.ap-southeast-1.rds.amazonaws.com";
+$username = "dev";
+$password = "rdsdevtest";
+$dbname="MyStaffTest";
+
+
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
-{
-    echo "Tutorial ID :{$row['id']}  <br> ".
-         "UserName: {$row['userName']} <br> ".
-         "Password: {$row['password']} <br> ".
-          "--------------------------------<br>";
-} 
-echo "Fetched data successfully\n";
-mysql_close($conn);
 ?>
