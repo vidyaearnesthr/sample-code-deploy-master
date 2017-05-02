@@ -10,7 +10,7 @@ $password="";
 $dbname="mystaff";*/
 
 
-$servername = "mystaffdev-test.cthwf1dxttem.ap-southeast-1.rds.amazonaws.com";
+echo $servername = "mystaffdev-test.cthwf1dxttem.ap-southeast-1.rds.amazonaws.com";
 $username = "dev";
 $password = "rdsdevtest";
 $dbname="MyStaffTest";
