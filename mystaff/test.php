@@ -1,5 +1,4 @@
 <?php
-
 phpinfo();
 var_dump(function_exists('mysqli_connect'));
 
@@ -18,10 +17,8 @@ echo "Connection Created </br>";
 if ($conn->connect_error) {
 	echo "Not Connected </br>";
     echo "Connection failed: " . $conn->connect_error;
-		   }else
-		  {
+		   }
+           else{
 			echo "Connected;
 		  }
-  
-  
 ?>
