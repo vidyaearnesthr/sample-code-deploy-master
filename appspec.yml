@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: mystaff/test.php
+  - source: mystaff/
     destination: /var/www/html/demo/
 hooks:
   BeforeInstall:
